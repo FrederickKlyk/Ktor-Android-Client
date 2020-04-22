@@ -1,0 +1,1 @@
+C:\Users\klyk\AndroidStudioProjects\bof\KtorClient\buildSrc\build\classes\kotlin\main\Dependencies.class;C:\Users\klyk\AndroidStudioProjects\bof\KtorClient\buildSrc\build\classes\kotlin\main\Versions.class

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="de.klyk.ktorclient.ui.main.websocket.WebsocketsFragmentViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.coroutines.WebsocketsFragment">
+
+        <EditText
+            android:id="@+id/wsMessageET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:hint="Chat message"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:inputType="text"
+            android:text="@={viewModel.wsChatMessage}"
+            app:layout_constraintEnd_toStartOf="@+id/wsSendBUTTON"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/wsSendBUTTON"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ () -> viewModel.sendChatMessage()}"
+            android:text="send"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/wsMessageET" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/websocketsMessagesRV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wsSendBUTTON"
+            tools:listitem="@layout/websockets_sender_list_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
